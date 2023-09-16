@@ -1,0 +1,113 @@
+// 日誌卡片<共用的css>_diary.html頁面
+.diaryCenter {
+    margin: 0px 10px;
+    position: relative;
+
+    .diarySolid {
+        width: 300px;
+        border-radius: 5px;
+        overflow: hidden;
+
+        a {
+            color: $keyWhite;
+        }
+
+        .imgContent {
+            position: relative;
+
+            .diaryTitleA {
+                position: absolute;
+                top: 0;
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 15px;
+
+                .diaryTitleFlex {
+                    vertical-align: middle;
+
+                    img {
+                        width: 42px;
+                        border: 1px solid $keyWhite;
+                        border-radius: 50%;
+                        overflow: hidden;
+                        vertical-align: middle;
+                    }
+
+                    .userName {
+                        display: inline-block;
+                        padding-left: 10px;
+                    }
+                }
+
+                .userText {
+                    vertical-align: middle;
+                }
+            }
+
+            .diaryTitleB {
+                position: absolute;
+                bottom: 0;
+
+                p {
+                    padding: 0 15px 15px;
+                }
+            }
+        }
+
+        .diaryText {
+            padding: 10px;
+            background-color: $keyWhite;
+            color: $keyBlue;
+            text-align: center;
+        }
+
+        .diaryData {
+
+            div {
+                display: inline-block;
+                margin: 0 15px;
+    
+                span {
+                    display: block;
+                    margin: 10px;
+                    color: $keyYellow;
+                }
+            }
+        }
+    }
+}
+
+// 蝦子
+.diaryCenter::after {
+    content: "";
+    display: inline-block;
+    width: 130px;
+    height: 105px;
+    background-image: url(../../assets/img/index/shaII.png);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 120px auto;
+    position: absolute;
+    left: 50%;
+    bottom: -24.5%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    z-index: -1;
+}
+
+.diaryCenter:hover::after {
+    background-position: center bottom;
+}
+
+
+@media all and (max-width: 767px) {
+    .diaryCenter {
+        margin: 20px 0;
+    }
+
+    .diaryCenter::after{
+        display: none;
+    }
+}
