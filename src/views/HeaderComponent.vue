@@ -1,12 +1,12 @@
 <template>
-  <header>
+  <header :class="mobileHeader">
     <h1 class="logo">
       海中日子 Divein
       <router-link to="/frontIndex"
         ><img src="../assets/img/header/logo.png" alt="logo"
       /></router-link>
     </h1>
-    <div class="nav">
+    <div :class="navDiv">
       <ul>
         <li class="recommend_nav">
           <router-link to="/spotRefer">潛點推薦</router-link>
@@ -27,23 +27,23 @@
     </div>
     <div class="memCart">
       <ul>
-        <li class="userName">
+        <li :class="userNameLi">
           <span id="memName"></span><span id="spanLogin"></span>
         </li>
-        <li class="memberIcon">
+        <li :class="memberIconLi">
           <a id="loginA" href=""
             ><img src="../assets/img/header/member.png"
           /></a>
         </li>
-        <li class="lili">
-          <a class="cartlink" href="./cart.html">
+        <li :class="cartLi">
+          <router-link class="cartlink" to="/cart">
             <img src="../assets/img/header/cart.png" />
-          </a>
-          <span id="itemCounting"></span>
+          </router-link>
+          <span id="itemCounting">{{ itemCounting }}</span>
         </li>
       </ul>
     </div>
-    <button class="hamburger hamburger--3dxy" type="button">
+    <button :class="hamburgerClass" type="button" @click="showMenu">
       <span class="hamburger-box">
         <span class="hamburger-inner"></span>
       </span>
@@ -54,6 +54,58 @@
 <script>
 export default {
   name: "HeaderComponent",
+  data() {
+    return {
+      mobileMenu: false,
+      itemCounting: 0,
+    };
+  },
+  computed:{
+    mobileHeader:{
+      get(){
+        return this.mobileMenu ? "bg" : ""
+      }
+    },
+    navDiv:{
+      get(){
+        return this.mobileMenu ? "nav show" : "nav"
+      }
+    },
+    userNameLi:{
+      get(){
+        return this.mobileMenu ? "userName show" : "userName"
+      }
+    },
+    memberIconLi:{
+      get(){
+        return this.mobileMenu ? "memberIcon show" : "memberIcon"
+      }
+    },
+    cartLi:{
+      get(){
+        return this.mobileMenu ? "cartLi show" : "cartLi"
+      }
+    },
+    hamburgerClass:{
+      get(){
+        return this.mobileMenu ? "hamburger hamburger--3dxy is-active" : "hamburger hamburger--3dxy"
+      }
+    }
+  },
+  methods:{
+    itemCountCart(bool){
+        if (bool) {
+          var productsNum = sessionStorage.getItem("addItem").split(", ");
+          this.itemCounting = productsNum.length;
+        }
+    },
+    showMenu(){
+      this.mobileMenu = !this.mobileMenu
+    }
+  },
+  mounted() {
+    this.$bus.$on('itemCount', this.itemCountCart)
+  },
 };
 </script>
 
@@ -179,10 +231,13 @@ export default {
 }
 
 header {
-  background-color: rgba(254, 254, 254, 0.15);
+  background-color: rgba(22, 24, 29, 0.55);
   display: flex;
   justify-content: space-around;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 5;
 }
 
 h1 {
@@ -216,9 +271,10 @@ h1 {
     line-height: 25px;
     vertical-align: middle;
     position: relative;
+    transition: all .2s;
   }
 
-  a::after{
+  a::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -228,7 +284,7 @@ h1 {
     height: 7%;
   }
 
-  a:hover::after{
+  a:hover::after {
     display: block;
   }
 }
@@ -237,10 +293,22 @@ h1 {
   li {
     display: inline-block;
     margin: 0 10px;
+    color: #fefefe;
+    position: relative;
   }
 
   img {
     width: 30px;
+  }
+
+  #itemCounting {
+    padding: 1px 5px;
+    border-radius: 50%;
+    color: $keyWhite;
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    background-color: red;
   }
 }
 
@@ -280,9 +348,7 @@ h1 {
   background-image: url("../assets/img/header/game.png");
 }
 
-header {
-  background-color: rgba(22, 24, 29, 0.55);
-}
+
 .index .container .scene {
   background-image: url("../assets/img/index/spotGiLittle-02.png");
 }
@@ -323,9 +389,6 @@ header {
 #spanLogin:hover {
   cursor: pointer;
 }
-.memCart li {
-  color: #fefefe;
-}
 
 .hamburger {
   display: none;
@@ -339,11 +402,13 @@ li > a {
 @media screen and (max-width: 991px) {
   header {
     justify-content: space-between;
+    align-items: flex-start;
     padding: 0 3%;
   }
 
   .hamburger {
     display: inline-block;
+    padding-top: 30px;
   }
   .nav {
     display: none;
@@ -352,14 +417,14 @@ li > a {
     left: 50%;
     transform: translate(-50%);
 
-    a {
-      color: $keyBlue;
+    li {
+      margin: 50px auto;
+      display: block;
     }
-  }
 
-  .nav li {
-    margin: 50px auto;
-    display: block;
+    a:hover{
+      transform: translateX(-5px)
+    }
   }
 
   a::before {
@@ -375,10 +440,16 @@ li > a {
     li {
       display: none;
     }
-  }
 
-  .nav a:hover {
-    transform: translateX(-5px);
+    li:nth-child(1).show{
+      display: block;
+      padding-bottom: 30px;
+    }
+
+    li.show{
+      display: inline-block;
+    }
+
   }
 }
 
@@ -390,7 +461,18 @@ li > a {
 
 @media screen and (max-width: 576px) {
   header {
-    background-color: rgba(54,72,103);
+    background-color: rgba(54, 72, 103);
   }
 }
+
+// rwd menu
+.bg{
+  background-color: #222;
+  height: 100vh;
+}
+
+.nav.show{
+  display: block !important;
+}
+
 </style>

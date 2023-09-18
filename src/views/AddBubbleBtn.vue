@@ -16,6 +16,7 @@
     </svg>
     <span class="button--bubble__container">
       <router-link
+        @click.native="showdetail"
         :to="pathText"
         class="button button--bubble"
         ref="buttonBubble"
@@ -38,6 +39,7 @@
 </template>
 
 <script>
+import Swal from "sweetalert2";
 import { gsap } from "gsap";
 import { SlowMo } from "gsap/EasePack";
 gsap.registerPlugin(SlowMo);
@@ -55,10 +57,13 @@ export default {
     },
     pathText: {
       type: String,
-      default: " ",
+      default: "",
     },
     idText: {
       type: String,
+    },
+    msg: {
+      type: Object,
     },
   },
   computed: {
@@ -264,6 +269,56 @@ export default {
       thisBtn.removeEventListener("mouseenter", restart);
       thisBtn.addEventListener("mouseenter", restart);
     },
+    showdetail() {
+      if (this.otherClass == "detail") {
+        Swal.fire({
+          title: `${this.msg.itemName}`,
+          html: `${this.msg.itemIntro}`,
+          showCloseButton: true,
+          showCancelButton: false,
+          showConfirmButton: false,
+        });
+      } else if (this.otherClass == "addCart") {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "此商品已成功加入購物車",
+          showConfirmButton: false,
+          timer: 1000,
+        });
+
+        var itemId = this.msg.itemID;
+        var itemName = this.msg.itemName;
+        var itemImg = this.msg.itemImg;
+        var itemPrice = this.msg.itemPrice;
+        var productVal =`${itemName}|${itemImg}|${itemPrice}`
+        var str = sessionStorage.getItem("addItem");
+
+        if (str == " ") {
+          
+          sessionStorage.setItem("addItem", itemId);
+          sessionStorage.setItem(itemId, productVal);
+          this.$bus.$emit('itemCount',true)
+        } else if (str != " ") {
+          var result = str.indexOf(itemId);
+
+          if (result >= 0) {
+
+            Swal.fire("此商品已在購物車內");
+
+          } else if (result == -1) {
+            str = str + ", " + itemId;
+            sessionStorage.setItem("addItem", str);            
+            sessionStorage.setItem(itemId, productVal);
+          this.$bus.$emit('itemCount',true)
+
+          }
+        }
+      }
+    },
+  },
+  mounted() {
+    sessionStorage.setItem("addItem", " ");
   },
 };
 </script>
@@ -313,6 +368,10 @@ export default {
         background: #fefefe;
       }
     }
+  }
+
+  div:where(.swal2-container) .swal2-html-container {
+    color: $keyBlack;
   }
 }
 </style>

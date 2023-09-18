@@ -1,15 +1,6 @@
 <template>
   <div class="shopPage">
     <HeaderComponent />
-    <div class="lightbox-block1">
-      <div class="lightbox1">
-        <div class="button_closeBox1">
-          <button type="button" class="btn_modal_close">✖</button>
-        </div>
-        <h3 style="margin-bottom: 20px"></h3>
-        <p style="color: black"></p>
-      </div>
-    </div>
     <div class="shopH2">
       <h2>潛水商城</h2>
     </div>
@@ -31,8 +22,8 @@
         <span class="NT">{{item.itemPrice}}</span>
 
         <div class="shopBtn">
-          <AddBubbleBtn @click.prevent="showdetail" hrefText="查看詳情" otherClass="detail" :idText="item.detailID"></AddBubbleBtn>
-          <AddBubbleBtn hrefText="加入購物車" otherClass="addCart" :idText="item.itemID"></AddBubbleBtn>
+          <AddBubbleBtn hrefText="查看詳情" otherClass="detail" :idText="item.detailID" :msg="item"></AddBubbleBtn>
+          <AddBubbleBtn hrefText="加入購物車" otherClass="addCart" :idText="item.itemID" :msg="item"></AddBubbleBtn>
         </div>
         <font-awesome-icon icon="fa-solid fa-heart"></font-awesome-icon>
       </div>
@@ -42,7 +33,6 @@
 </template>
 
 <script>
-import Swal from 'sweetalert2';
 
 import HeaderComponent from "../HeaderComponent";
 import AddBubbleBtn from "../AddBubbleBtn";
@@ -60,6 +50,7 @@ export default {
           itemImg: require("../../assets/img/shop/mask1@2x.png"),
           itemPrice: 7500,
           itemID: "A0001",
+          itemIntro: "顧名思義看得清楚，視力就像2.0一樣，真的非常清楚",
           detailID:"DA0001"
         },
         {
@@ -67,6 +58,7 @@ export default {
           itemImg: require("../../assets/img/shop/mask2@2x.png"),
           itemPrice: 6550,
           itemID: "A0002",
+          itemIntro: "看得剛剛好，輕鬆瀏覽海底事件不受影響 !",
           detailID:"DA0002"
         },
         {
@@ -74,6 +66,7 @@ export default {
           itemImg: require("../../assets/img/shop/mask3@2x.png"),
           itemPrice: 2150,
           itemID: "A0003",
+          itemIntro: "僅能看到周遭範圍，看的距離有限",
           detailID:"DA0003"
         },
         {
@@ -81,7 +74,104 @@ export default {
           itemImg: require("../../assets/img/shop/mask4@2x.png"),
           itemPrice: 1250,
           itemID: "A0004",
+          itemIntro: "有預算限制在購買它吧!",
           detailID:"DA0004"
+        },
+        {
+          itemName: "永久指針",
+          itemImg: require("../../assets/img/shop/watch1@2x.png"),
+          itemPrice: 8800,
+          itemID: "B0001",
+          itemIntro: "配戴此表保證完美紀錄最大深度、殘氮值、安全停留等所有數據!",
+          detailID:"DB0001"
+        },
+        {
+          itemName: "紀錄指針",
+          itemImg: require("../../assets/img/shop/watch2@2x.png"),
+          itemPrice: 6600,
+          itemID: "B0002",
+          itemIntro: "可以記錄這片海域的地形，掌握潛入的海域資訊。",
+          detailID:"DB0002"
+        },
+        {
+          itemName: "磁石指針",
+          itemImg: require("../../assets/img/shop/watch3@2x.png"),
+          itemPrice: 2200,
+          itemID: "B0003",
+          itemIntro: "第一款利用磁石所設計的潛水錶，非常特別，驚豔全場的指針!",
+          detailID:"DB0003"
+        },
+        {
+          itemName: "迷路指針",
+          itemImg: require("../../assets/img/shop/watch4@2x.png"),
+          itemPrice: 1200,
+          itemID: "B0004",
+          itemIntro: "給予有預算限制的人的選擇!",
+          detailID:"DB0004"
+        },
+        {
+          itemName: "紅色工作手套",
+          itemImg: require("../../assets/img/shop/gloves1@2x.png"),
+          itemPrice: 8800,
+          itemID: "C0001",
+          itemIntro: "防止被礁岩割傷，不論實用性還是美觀都是一等一的!",
+          detailID:"DC0001"
+        },
+        {
+          itemName: "藍色工作手套",
+          itemImg: require("../../assets/img/shop/gloves2@2x.png"),
+          itemPrice: 5800,
+          itemID: "C0002",
+          itemIntro: "有戴像沒戴一樣輕巧!",
+          detailID:"DC0002"
+        },
+        {
+          itemName: "綠色工作手套",
+          itemImg: require("../../assets/img/shop/gloves3@2x.png"),
+          itemPrice: 2600,
+          itemID: "C0003",
+          itemIntro: "戴的剛剛好!",
+          detailID:"DC0003"
+        },
+        {
+          itemName: "紫色工作手套",
+          itemImg: require("../../assets/img/shop/gloves4@2x.png"),
+          itemPrice: 1800,
+          itemID: "C0004",
+          itemIntro: "給予有預算限制的人的選擇!",
+          detailID:"DC0004"
+        },
+        {
+          itemName: "神速蛙鞋",
+          itemImg: require("../../assets/img/shop/frogshoes1@2x.png"),
+          itemPrice: 9800,
+          itemID: "D0001",
+          itemIntro: "給予有預算限制的人的選擇!",
+          detailID:"DD0001"
+        },
+        {
+          itemName: "噴射蛙鞋",
+          itemImg: require("../../assets/img/shop/frogshoes2@2x.png"),
+          itemPrice: 6500,
+          itemID: "D0002",
+          itemIntro: "給予有預算限制的人的選擇!",
+          detailID:"DD0002"
+        },
+        {
+          itemName: "推進蛙鞋",
+          itemImg: require("../../assets/img/shop/frogshoes3@2x.png"),
+          itemPrice: 4500,
+          itemID: "D0003",
+          itemIntro: "給予有預算限制的人的選擇!",
+          detailID:"DD0003"
+        },
+        {
+          itemName: "慢速蛙鞋",
+          itemImg: require("../../assets/img/shop/frogshoes4@2x.png"),
+          itemPrice: 800,
+          itemID: "D0004",
+          itemIntro: "給予有預算限制的人的選擇!",
+          detailID:"DD0004"
         },
       ],
     };
@@ -93,16 +183,12 @@ export default {
       }
     }
   },
-  methods: {
+  methods:{
     showdetail(){
-      Swal.fire({
-        title: '水中看得清',
-        text: '顧名思義看得清楚，視力就像2.0一樣',
-
-      })
+      alert("hiiiiii")
+      console.log("shoppppppp")
     }
-  },
-
+  }
 };
 </script>
 
@@ -221,4 +307,6 @@ body {
 .swal2-header h2::before {
   content: none;
 }
+
+
 </style>

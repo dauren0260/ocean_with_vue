@@ -20,6 +20,7 @@
         :to="pathText"
         class="button button--bubble"
         ref="buttonBubble"
+        @click="savePath(pathText)"
       >
         {{ hrefText }}
       </router-link>
@@ -264,6 +265,10 @@ export default {
       thisBtn.removeEventListener("mouseenter",restart)
       thisBtn.addEventListener("mouseenter", restart)
     },
+    savePath(pathText){
+      let path = String(pathText)
+      sessionStorage.setItem('path',path)
+    }
   },
 };
 </script>
