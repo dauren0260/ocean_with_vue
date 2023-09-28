@@ -43,6 +43,30 @@ a {
     text-decoration: none;
 }
 
+input{
+    text-align: left;
+    margin: 0;
+    padding: 10px;
+    width: 160px;
+    height: 30px;
+}
+
+//rwd----------------------------
+$rwdOne: 1200px;
+$rwdTwo: 992px;
+$rwdThree: 767px;
+$rwdFour: 577px;
+$rwdFive: 376px;
+//rwd 為了方便先這樣設定 基本上應該還是要用功能及畫面意義斷點變數名稱 如 desktop  pad  mobile...
+//rwd---------------------------end
+
+//格線設定----------------------------
+$borderW: 1px;                //邊框粗度
+$radius: 5px;                 //邊線圓角
+$border-color: $keyYellow;    //邊框顏色
+$box-shaow: 7px,7px,7px,$keyBlack;    //陰影
+//格線設定----------------------------end
+
 //整個網頁大範圍的基本設定------------------------
 $text-color: $keyWhite;         //文字-整個網頁基本色
 $hot-color: $keyYellow;         //文字-整個網頁較為重點色
@@ -110,13 +134,13 @@ $form-padding:20px;
 
 //輸入框設定------------select/textarea/input----
 $input-form-height: 30px;      //input 高
-$input-form-width: 150px;       //input 寬
+$input-form-width: 160px;       //input 寬
 $input-formFoucusBd-color: $keyGray; //input focus邊框顏色
 $input-border-color: $keyGray;
 $input-padding-y: 10px;     //input padding 高
 $input-padding-x: 10px;     //input padding 寬
-$input-margin-y: 10px;     //input margin 高
-$input-margin-x: 10px;     //input margin 寬
+$input-margin-y: 0px;     //input margin 高
+$input-margin-x: 0px;     //input margin 寬
 $input-textbg-color: $keyWhite;
 //輸入框設定----------------------------end
 

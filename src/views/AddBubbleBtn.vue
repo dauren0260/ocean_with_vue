@@ -294,31 +294,31 @@ export default {
         var productVal =`${itemName}|${itemImg}|${itemPrice}`
         var str = sessionStorage.getItem("addItem");
 
-        if (str == " ") {
+        if (str == "") {
           
           sessionStorage.setItem("addItem", itemId);
           sessionStorage.setItem(itemId, productVal);
-          this.$bus.$emit('itemCount',true)
-        } else if (str != " ") {
+          this.$store.dispatch('item_Count_Cart',true)
+
+        } else if (str != "") {
           var result = str.indexOf(itemId);
 
           if (result >= 0) {
 
-            Swal.fire("此商品已在購物車內");
+            Swal.fire({
+              title:"此商品已在購物車內",
+              confirmButtonColor: '#E6AE2C',
+            });
 
           } else if (result == -1) {
-            str = str + ", " + itemId;
+            str = str + "," + itemId;
             sessionStorage.setItem("addItem", str);            
             sessionStorage.setItem(itemId, productVal);
-          this.$bus.$emit('itemCount',true)
-
+            this.$store.dispatch('item_Count_Cart',true)
           }
         }
       }
     },
-  },
-  mounted() {
-    sessionStorage.setItem("addItem", " ");
   },
 };
 </script>

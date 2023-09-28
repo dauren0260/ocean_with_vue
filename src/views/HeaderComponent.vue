@@ -39,7 +39,7 @@
           <router-link class="cartlink" to="/cart">
             <img src="../assets/img/header/cart.png" />
           </router-link>
-          <span id="itemCounting">{{ itemCounting }}</span>
+          <span id="itemCounting">{{ $store.state.itemCounting }}</span>
         </li>
       </ul>
     </div>
@@ -57,7 +57,6 @@ export default {
   data() {
     return {
       mobileMenu: false,
-      itemCounting: 0,
     };
   },
   computed:{
@@ -93,18 +92,18 @@ export default {
     }
   },
   methods:{
-    itemCountCart(bool){
-        if (bool) {
-          var productsNum = sessionStorage.getItem("addItem").split(", ");
-          this.itemCounting = productsNum.length;
-        }
-    },
     showMenu(){
       this.mobileMenu = !this.mobileMenu
     }
   },
   mounted() {
-    this.$bus.$on('itemCount', this.itemCountCart)
+    if(sessionStorage.getItem("addItem") == null) {
+      sessionStorage.setItem("addItem", "");
+    }
+    if(sessionStorage.getItem("memberInfo") == null) {
+      sessionStorage.setItem("memberInfo", "");
+    }
+    this.$store.dispatch('item_Count_Cart',false)
   },
 };
 </script>

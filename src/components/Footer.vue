@@ -13,12 +13,15 @@ export default {
 </script>
 
 <style lang="scss">
-.copyright{
-    width: 100%;
-    text-align: center;
-    padding: 10px 0;
-    background-color: $keyBlack;
-    color: $keyWhite;
-    font-size: 16px;
+.copyright {
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  background-color: $keyBlack;
+  color: $keyWhite;
+  font-size: 16px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }
 </style>

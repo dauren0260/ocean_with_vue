@@ -13,7 +13,6 @@
       </ul>
     </div>
     <div class="foojun">
-      <!-- <Product/> -->
       <div class="art" v-for="(item,id) of products" :key="id">
         <span class="itemName">{{item.itemName}}</span>
         <div class="item">
@@ -36,7 +35,6 @@
 
 import HeaderComponent from "../HeaderComponent";
 import AddBubbleBtn from "../AddBubbleBtn";
-// import Product from "./Product.vue";
 import Footer from "../../components/Footer.vue";
 
 export default {
