@@ -144,3 +144,22 @@ div {
     }
 }
 
+.buymore, .demo-btn, .toBack{
+    .effect-button,
+    .button--bubble__effect-container .circle {
+      background: #176587;
+    }
+
+    .button--bubble:hover {
+      color: #176587;
+    }
+
+    .button--bubble:hover + .button--bubble__effect-container .circle {
+      background: #fefefe;
+    }
+
+    //觸摸時背景顏色
+    .button--bubble:hover + .button--bubble__effect-container .button {
+      background: #fefefe;
+    }
+  }
