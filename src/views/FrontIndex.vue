@@ -199,10 +199,5 @@ body {
   background-attachment: unset;
 }
 
-@media screen and (max-width: 576px) {
-  body {
-    background-position: center 90px;
-  }
-}
 </style>
 

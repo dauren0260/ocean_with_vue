@@ -9,7 +9,7 @@
     <div :class="navDiv">
       <ul>
         <li class="recommend_nav">
-          <router-link to="/spotRefer">潛點推薦</router-link>
+          <router-link to="/spot">潛點推薦</router-link>
         </li>
         <li class="course_nav">
           <router-link to="/course">潛水課程</router-link>
