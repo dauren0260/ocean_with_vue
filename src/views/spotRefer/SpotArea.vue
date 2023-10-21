@@ -46,10 +46,10 @@
         </div>
         <div class="spotBlock spotLeft">
             <div class="spotLeftImage">
-                <a href="" v-for="(item, i) of eachAreaList" :key="i">
+                <router-link v-for="(item, i) of eachAreaList" :key="i" :to="{ name: 'SpotRefer', params: { itemId: item.itemId }}">
                     <img :src="item.itemImg" />
                     <span>{{ item.itemName }}</span>
-                </a>
+                </router-link>
             </div>
         </div>
     </div>
@@ -69,22 +69,27 @@ export default {
                     station_info:'譽為世界級的潛水寶地<br />全球百大必潛地',
                     station_area:[
                         {
+                            itemId: 22665,
                             itemName: '海底教堂',
                             itemImg: require("../../assets/img/spot/spotGiLittle-01.png"),
                         },
                         {
+                            itemId: 22639,
                             itemName: '鋼鐵礁',
                             itemImg: require("../../assets/img/spot/spotGiLittle-02.png"),
                         },
                         {
+                            itemId: 22656,
                             itemName: '石朗大香菇',
                             itemImg: require("../../assets/img/spot/spotGiLittle-03.png"),
                         },
                         {
+                            itemId: 22691,
                             itemName: '海底大峽谷',
                             itemImg: require("../../assets/img/spot/spotGiLittle-04.png"),
                         },
                         {
+                            itemId: 22638,
                             itemName: '雞仔礁',
                             itemImg: require("../../assets/img/spot/spotGiLittle-05.png"),
                         },
@@ -98,22 +103,27 @@ export default {
                     station_info:'坐擁水下能見度高達50公尺的澄澈玻璃海<br />充滿部落風情的人之島',
                     station_area:[
                         {
+                            itemId: 22084,
                             itemName: '母雞岩',
                             itemImg: require("../../assets/img/spot/spotEncLittle-03.png"),
                         },
                         {
+                            itemId: 22024,
                             itemName: '八代灣沉船',
                             itemImg: require("../../assets/img/spot/spotKdLittle-01.png"),
                         },
                         {
+                            itemId: 22050,
                             itemName: '椰油斷層',
                             itemImg: require("../../assets/img/spot/spotLyLittle-03.png"),
                         },
                         {
+                            itemId: 22039,
                             itemName: '野銀小峽谷',
                             itemImg: require("../../assets/img/spot/spotLyLittle-04.png"),
                         },
                         {
+                            itemId: 22008,
                             itemName: '四條溝',
                             itemImg: require("../../assets/img/spot/spotLyLittle-05.png"),
                         },
@@ -128,18 +138,22 @@ export default {
                     station_area:["後壁湖", "出水口", "雙峰藍洞", "合界"],
                     station_area:[
                         {
+                            itemId: 21950,
                             itemName: '後壁湖',
                             itemImg: require("../../assets/img/spot/spotLyLittle-02.png"),
                         },
                         {
+                            itemId: 21942,
                             itemName: '出水口',
                             itemImg: require("../../assets/img/spot/spotGiLittle-00.jpg"),
                         },
                         {
+                            itemId: 21917,
                             itemName: '雙峰藍洞',
                             itemImg: require("../../assets/img/spot/spotPic-2.png"),
                         },
                         {
+                            itemId: 21951,
                             itemName: '合界',
                             itemImg: require("../../assets/img/spot/spotPic-0.png"),
                         },
@@ -153,22 +167,27 @@ export default {
                     station_info:'台灣唯一的珊瑚礁島<br />海龜目擊率極高',
                     station_area:[
                         {
+                            itemId: 22355,
                             itemName: '花瓶岩',
                             itemImg: require("../../assets/img/spot/spotSrkLittle-01.png"),
                         },
                         {
+                            itemId: 22353,
                             itemName: '美人洞',
                             itemImg: require("../../assets/img/spot/spotLyLittle-02.png"),
                         },
                         {
+                            itemId: 22340,
                             itemName: '衫福沈船',
                             itemImg: require("../../assets/img/spot/spotSrkLittle-03.png"),
                         },
                         {
+                            itemId: 22320,
                             itemName: '鎮海艦',
                             itemImg: require("../../assets/img/spot/spotSrkLittle-04.png"),
                         },
                         {
+                            itemId: 22326,
                             itemName: '厚石礁群',
                             itemImg: require("../../assets/img/spot/spotSrkLittle-05.png"),
                         },
@@ -183,18 +202,22 @@ export default {
                     station_area:["和美", "龍洞", "潮境公園", "鼻頭角"],
                     station_area:[
                         {
+                            itemId: 25079,
                             itemName: '和美',
                             itemImg: require("../../assets/img/spot/spotEncLittle-03.png"),
                         },
                         {
+                            itemId: 25099,
                             itemName: '龍洞',
                             itemImg: require("../../assets/img/spot/spotEncLittle-01.png"),
                         },
                         {
+                            itemId: 25146,
                             itemName: '潮境公園',
                             itemImg: require("../../assets/img/spot/spotPic-5.png"),
                         },
                         {
+                            itemId: 25129,
                             itemName: '鼻頭角',
                             itemImg: require("../../assets/img/spot/spotPic-6.png"),
                         },
@@ -232,12 +255,6 @@ export default {
 </script>
 
 <style lang="scss">
-.spot header {
-    ul li:first-child a {
-       font-weight: 700
-    }
-} 
-
 .spotMain {
     color: #fefefe
 }
@@ -247,20 +264,8 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    // min-height: 100vh;
-    // height: calc(100vh - 40px);
     margin-top: 40px;
 }
-
-// @media all and (max-width: 1200px) {
-//     .spotMain section {
-//         height: 100%;
-//         flex-direction: column;
-//         min-height: 100vh;
-//     }
-// }
-
-
 
 .spot .spotContents {
     width: 90vw;
@@ -272,8 +277,6 @@ export default {
         text-align: center
     }
 }
-
-
 
 .spotContents .spotarea {
     width: 100%;
@@ -475,9 +478,7 @@ export default {
 }
 
 .spotPushBlock img {
-    // width: 100%;
-    // overflow: hidden;
-    opacity: .8
+    opacity: 0.8;
 }
 
 .spotPushBlock img:hover {
@@ -536,19 +537,22 @@ export default {
     margin: 0 auto;
     text-align: center
 }
+@media all and (max-width: 1200px) {
+    .spotLeft{
+        max-height: max-content;
+    }
+}
 
 @media all and (max-width: 992px) {
     .spotLeft {
         width: 100%;
-        max-height: max-content;
-        margin: 5% auto
+        margin: 5% auto;
     }
 }
 
 .spotLeft .spotLeftImage {
     display: flex;
     flex-wrap: wrap;
-    // width: 800px;
     margin: 0 auto;
 }
 

@@ -5,14 +5,11 @@
     <section>
       <div class="box spotContents" id="box">
         <router-view></router-view>
-
-        <!-- <component :is="componentId"></component> -->
-
       </div>
       <div class="box spotListBlock" >
             <ul class="spotList" >
               <li v-for="(area, index) of areaList" :key="index">
-                <router-link :to="`/spot/spotArea?stationId=${area.stationId}`" class="spotText" >{{ area.stationName }}</router-link>
+                <router-link :to="{ name: 'SpotArea', params: { stationId: area.stationId }}" class="spotText" >{{ area.stationName }}</router-link>
               </li>
               <!-- <li><router-link :to="`/spot/spotArea?${stationId=467660}`" class="spotText" spotStationId="467660">綠島</router-link></li>
               <li><router-link to="/spot/spotArea" class="spotText" spotStationId="467620">蘭嶼</router-link></li>
@@ -65,8 +62,7 @@ export default {
   },
   mounted() {
     document.body.className = "spot";
-    this.$router.push('/spot/spotArea?stationId=467660').catch(()=>{})
-    console.log(this.$route.query.stationId)
+    this.$router.push('/spot/spotArea/467660').catch(()=>{})
   },
   beforeDestroy() {
     document.body.className = " ";
@@ -77,6 +73,17 @@ export default {
 <style lang="scss">
 .spot {
   background-image: url(../../assets/img/spot/spotBanner_1-1.jpg);
+
+  header{
+    .recommend_nav{
+      a{
+        font-weight: 700;
+      }
+      a::after{
+        display: block;
+      }
+    }
+  }
 }
 
 

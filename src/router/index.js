@@ -4,6 +4,7 @@ import IndexPage from '../views/IndexPage'
 import FrontIndex from '../views/FrontIndex'
 import spot from '../views/spotRefer/Spot'
 import SpotArea from '../views/spotRefer/SpotArea'
+import SpotRefer from '../views/spotRefer/SpotRefer'
 import diaryInside from '../views/diary/diaryInside'
 import Shop from '../views/shop/Shop'
 import Cart from '../views/shop/Cart'
@@ -25,14 +26,26 @@ const router = new VueRouter({
             path:'/spot',
             component: spot,
             meta:{title:'海中日子 | 潛點推薦'},
-            children:[{
-                path: 'spotArea',
-                component: SpotArea,
-                meta:{title:'海中日子 | 潛點推薦'},
-                props($route){
-                    return { stationId: $route.query.stationId }
-                }
-            }]
+            children:[
+                {
+                    name: 'SpotArea',
+                    path: 'spotArea/:stationId',
+                    component: SpotArea,
+                    meta:{title:'海中日子 | 潛點推薦'},
+                    props($route){
+                        return { stationId: $route.params.stationId }
+                    },
+                },
+            ]
+        },
+        {           
+            name:'SpotRefer' ,
+            path: '/spotRefer/:itemId',
+            component: SpotRefer,
+            meta:{title:'海中日子 | 潛點介紹'},
+            props($route){
+                return { itemId: $route.params.itemId }
+            }
         },
         {
             path:'/diaryInside',

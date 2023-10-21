@@ -10,9 +10,9 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 /* import font awesome icon component */
 import {  FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 /* import specific icons */
-import { faCloud, faWater, faWind, faTemperatureHigh, faSun, faEye, faTemperatureLow, faHeart, faMinus, faPlus, faTrash, faUmbrellaBeach, faArrowAltCircleDown } from '@fortawesome/free-solid-svg-icons'
+import { faCloud, faWater, faWind, faTemperatureHigh, faSun, faEye, faTemperatureLow, faHeart, faMinus, faPlus, faTrash, faUmbrellaBeach, faArrowAltCircleDown, faCircleInfo } from '@fortawesome/free-solid-svg-icons'
 /* add icons to the library */
-library.add(faCloud, faWater, faWind, faTemperatureHigh, faSun, faEye, faTemperatureLow, faHeart, faMinus, faPlus, faTrash, faUmbrellaBeach, faArrowAltCircleDown  )
+library.add(faCloud, faWater, faWind, faTemperatureHigh, faSun, faEye, faTemperatureLow, faHeart, faMinus, faPlus, faTrash, faUmbrellaBeach, faArrowAltCircleDown, faCircleInfo  )
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
