@@ -350,4 +350,52 @@ h2::before {
       transform:translateY(0px) 
     }
 }
+
+@media all and (max-width:1200px){
+  
+  .detailArea{
+    width: auto;
+  }
+}
+@media all and (max-width:767px){
+
+  .spotRefer_Main{
+    width: 90%;
+  }
+
+  .spotReferImg > img{
+    height: auto;
+  }
+
+  .detailArea{
+    margin: 0;
+  }
+
+  .creatureArea img{
+    width: 80px;
+  }
+
+  .messageLi{
+    width: auto;
+    .text{
+      padding: 0 20px;
+    }
+
+    div {
+      margin-left: 4px;
+    }
+  }
+}
+@media all and (max-width:376px){
+
+  .creatureArea li{
+    margin: 0;
+  }
+
+  .messageLi{
+    div{
+      margin-left: 1px;
+    }
+  }
+}
 </style>
