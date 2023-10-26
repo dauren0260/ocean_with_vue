@@ -308,7 +308,7 @@ export default {
 }
 
 .carousel {
-  width: 100%;
+  width: 95%;
   overflow: hidden;
   position: relative;
 }
@@ -376,7 +376,7 @@ export default {
   position: absolute;
   top: 50%;
   left: 50%;
-  z-index: 10;
+  z-index: 4;
   width: auto;
   margin: 0;
   padding: 0;
@@ -691,8 +691,18 @@ export default {
   }
 }
 
+@media (max-width: 376px) {
+
+  .section {
+    height: 75vh;
+  }
+  .case-study-wrapper .case-study-name a {
+    font-size: 20px;
+  }
+}
+
 .diary_diaryTitleH3 {
-  max-width: 80%;
+  max-width: 70%;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
@@ -739,6 +749,40 @@ export default {
       margin: 0 5px 0 15px;
     }
   }
+}
+
+@media (max-width: 580px) {
+
+  .diary_formSelect{
+    .diveAreaSelect {
+      label {
+        display: block;
+        padding-left: 60px;
+      }
+    }
+  }
+
+  .diary{
+    .button--bubble__container{
+      margin-top: 25px;
+    }
+  }
+
+  .diary_diaryTitleH3{
+    display: block;
+  }
+
+}
+@media (max-width: 376px) {
+
+  .diary_formSelect{
+    .diveAreaSelect {
+      label {
+        padding-left: 0px;
+      }
+    }
+  }
+
 }
 
 .diaryCardArea{
