@@ -16,6 +16,7 @@
         <a href="./admin.html">
           <img class="front FBubble" src="../assets/img/front/backbubble.png" />
         </a>
+        <Maintain />
       </div>
     </div>
   </div>
@@ -44,8 +45,10 @@
 </template>
 
 <script>
+import Maintain from '../components/Maintain.vue'
 export default {
-  name:'IndexPage'
+  name:'IndexPage',
+  components:{Maintain}
 };
 </script>
 
@@ -401,15 +404,6 @@ a {
     width: 130px;
   }
   .container {
-    /* -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center; */
     top: 30%;
     height: auto;
   }
@@ -437,11 +431,9 @@ a {
 
   .backBubble > a > img {
     width: 150px;
-    -webkit-transition: all 0.5s ease 0s;
     transition: all 0.5s ease 0s;
   }
   .backBubble > a > img:hover {
-    -webkit-transform: scale(1.05);
             transform: scale(1.05);
   }
 
@@ -452,7 +444,16 @@ a {
   }
 }
 
-@media all and (max-width: 375px) {
+.backBubble{
+  position: relative;
 
+  .main-wrapper{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
+
+
 </style>

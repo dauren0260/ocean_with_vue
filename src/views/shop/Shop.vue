@@ -1,5 +1,5 @@
 <template>
-  <div class="shopPage">
+  <div>
     <HeaderComponent />
     <div class="shopH2">
       <h2>潛水商城</h2>
@@ -181,24 +181,35 @@ export default {
       }
     }
   },
-  methods:{
-    showdetail(){
-      alert("hiiiiii")
-      console.log("shoppppppp")
-    }
+  mounted() {
+    document.body.className = "shopPage";
+  },
+  beforeDestroy(){
+    document.body.className = " ";
   }
 };
 </script>
 
-<style lang="scss" scoped>
-body {
+<style lang="scss">
+.shopPage{
   background-image: url(../../assets/img/diveinbg.jpg);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-}
 
+  header {
+    .shop_nav {
+      a {
+        font-weight: 700;
+      }
+
+      a::after {
+        display: block;
+      }
+    }
+  }
+}
 .shopH2 {
   text-align: center;
   padding: 30px 0;

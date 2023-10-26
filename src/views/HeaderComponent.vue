@@ -103,7 +103,7 @@ export default {
     if(sessionStorage.getItem("memberInfo") == null) {
       sessionStorage.setItem("memberInfo", "");
     }
-    this.$store.dispatch('item_Count_Cart',false)
+    this.$store.dispatch('item_Count_Cart',true)
   },
 };
 </script>

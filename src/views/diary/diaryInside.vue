@@ -26,7 +26,7 @@
     </div>
     <div class="diary_diaryTitleH3">
       <h2>所有日誌</h2>
-      <BubbleBtn hrefText="我想新增日誌" otherClass="addDiaryBtn" />
+      <BubbleBtn hrefText="我想新增日誌" otherClass="addDiaryBtn" pathText="diaryAdd"/>
     </div>
     <div class="diary_formSelect">
       <form>

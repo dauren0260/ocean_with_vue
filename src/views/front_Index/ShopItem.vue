@@ -11,23 +11,29 @@
       </div>
       <span class="NT">2350</span>
       <p class="descript">水中看得到就是看得到而已，如果用這個等級的面鏡，可看到身邊三米左右。</p>
-
-      <BubbleBtn hrefText="加入購物車" otherClass="addCart" idText="A0001" pathText=" ">
-        <input
-          type="hidden"
-          value="水中看得到|mask3@2x.png|2350"
-        />
-      </BubbleBtn>
+      <AddBubbleBtn hrefText="加入購物車" otherClass="addCart" idText="A0001" :msg="item"></AddBubbleBtn>
     </div>
   </div>
 </template>
 
 <script>
-import BubbleBtn from "../BubbleBtn";
+import AddBubbleBtn from "../AddBubbleBtn";
 
 export default {
   name: "ShopItem",
-  components:{BubbleBtn},
+  components:{AddBubbleBtn},
+  data(){
+    return {
+      item:{
+        itemName: "水中看得清",
+        itemImg: require("../../assets/img/shop/mask1@2x.png"),
+        itemPrice: 7500,
+        itemID: "A0001",
+        itemIntro: "顧名思義看得清楚，視力就像2.0一樣，真的非常清楚",
+        detailID:"DA0001"
+      },
+    }
+  },
   methods:{
     closeLightBox(){
       this.$bus.$emit('lightBox',false)

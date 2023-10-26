@@ -256,7 +256,8 @@ export default {
 
 <style lang="scss">
 .spotMain {
-    color: #fefefe
+    color: #fefefe;
+    margin-bottom: 30px;
 }
 
 .spotMain section {

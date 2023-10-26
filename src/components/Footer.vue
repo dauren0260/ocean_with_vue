@@ -1,7 +1,7 @@
 <template>
   <footer>
     <div class="copyright">
-      Copyright © 2020 Divein | 海中日子 All Rights Reserved.
+      Copyright © 2023 Dauren | 海中日子 All Rights Reserved.
     </div>
   </footer>
 </template>
@@ -20,8 +20,5 @@ export default {
   background-color: $keyBlack;
   color: $keyWhite;
   font-size: 16px;
-  position: absolute;
-  left: 0;
-  bottom: 0;
 }
 </style>

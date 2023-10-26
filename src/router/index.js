@@ -6,6 +6,8 @@ import spot from '../views/spotRefer/Spot'
 import SpotArea from '../views/spotRefer/SpotArea'
 import SpotRefer from '../views/spotRefer/SpotRefer'
 import diaryInside from '../views/diary/diaryInside'
+import diaryAdd from '../views/diary/diaryAdd'
+import course from "../views/course/Course"
 import Shop from '../views/shop/Shop'
 import Cart from '../views/shop/Cart'
 import GameIntro from '../views/game/gameIntro'
@@ -51,6 +53,16 @@ const router = new VueRouter({
             path:'/diaryInside',
             component: diaryInside,
             meta:{title:'海中日子 | 潛點日誌'}
+        },
+        {
+            path:'/diaryAdd',
+            component: diaryAdd,
+            meta:{title:'海中日子 | 潛點日誌'}
+        },
+        {
+            path:'/course',
+            component: course,
+            meta:{title:'海中日子 | 潛點課程'}
         },
         {
             path:'/shop',

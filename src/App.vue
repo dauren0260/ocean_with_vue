@@ -16,6 +16,5 @@ export default {
   #app{
     position: relative;
     min-height: 100vh;
-    padding-bottom: 36px;
   }
 </style>

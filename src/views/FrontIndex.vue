@@ -170,9 +170,9 @@ export default {
     var parallaxInstance = new Parallax(scene);
 
     this.$refs.fishBallon.style = "position:absolute; left: 30px;top: 130px;" ;
-    this.$refs.fishTurtle.style = "position:absolute; left: 350px;top: 100px;" ;
+    this.$refs.fishTurtle.style = "position:absolute; left: 320px;top: 120px;" ;
     this.$refs.fishGold.style = "position:absolute; left: 150px;top: 190px;" ;
-    this.$refs.fishNemo.style = "position:absolute; left: 450px;top: 200px;" ;
+    this.$refs.fishNemo.style = "position:absolute; left: 300px;top: 200px;" ;
     document.body.className = "frontPageBackGround"
   },
   beforeDestroy(){

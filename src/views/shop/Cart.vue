@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="cart-wrapper">
     <HeaderComponent />
     <div class="title">
       <h2>購物車</h2>
@@ -235,10 +235,13 @@ export default {
     this.$bus.$on("allSubTotal", this.computeAllSubtotal);
     this.memberInfo = sessionStorage.getItem("memberInfo");
     this.$bus.$on("updateAddItem", this.updateAddItemData)
+    document.body.className = "cart";
   },
   beforeDestroy(){
     this.$bus.$off("allSubTotal")
     this.$bus.$off("updateAddItem")
+    document.body.className = " ";
+
   }
 };
 </script>
@@ -458,5 +461,11 @@ h2::before {
       background-color: $keyYellow;
     }
   }
+}
+
+.cart-wrapper{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 </style>
