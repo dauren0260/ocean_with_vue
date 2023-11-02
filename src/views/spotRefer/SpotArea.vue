@@ -257,7 +257,13 @@ export default {
 <style lang="scss">
 .spotMain {
     color: #fefefe;
-    margin-bottom: 30px;
+
+    &::after{
+        content: '';
+        display: block;
+        width: 100%;
+        height: 40px;
+    }
 }
 
 .spotMain section {
@@ -266,10 +272,6 @@ export default {
     justify-content: center;
     align-items: center;
     margin-top: 40px;
-}
-
-.spot .spotContents {
-    width: 90vw;
 }
 
 @media all and (max-width: 992px) {
@@ -641,4 +643,8 @@ export default {
     flex: 3
 }
 
+.spot .copyright{
+    position: absolute;
+    bottom: 0;
+}
 </style>
