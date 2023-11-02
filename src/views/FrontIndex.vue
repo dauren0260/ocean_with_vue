@@ -61,7 +61,7 @@
       <BubbleBtn
         hrefText="潛點介紹"
         otherClass="spot_detailBtn"
-        pathText="/spotRefer"
+        pathText="/spotRefer/22665"
       ></BubbleBtn>
     </div>
     <h2>潛水課程</h2>
